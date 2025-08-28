@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Playfair Display", serif;
+  background: #000;
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Fundo com imagem */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sign-up_LE_upscale_balanced_x4%203.png-1STsV4lpvTbSaJVHZNucpTz03Vtmo0.jpeg") center/cover no-repeat;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  padding: 25px 40px;
+  position: relative;
+  z-index: 10;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-center-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 2px;
+  background: white;
+}
+
+/* Título */
+.main-title {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.main-title h1 {
+  font-size: 2.8rem;
+  font-weight: 400;
+  font-style: italic;
+  color: white;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding: 60px 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Linha vertical pontilhada */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    white,
+    white 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  transform: translateX(-50%);
+}
+
+/* Cada item */
+.timeline-item {
+  position: relative;
+  margin: 100px 0;
+}
+
+/* Bolinha */
+.timeline-dot {
+  width: 28px;
+  height: 28px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 0; /* topo do timeline-item */
+  transform: translateX(-50%);
+  box-shadow: 0 0 15px rgba(255,255,255,0.7);
+  z-index: 2;
+}
+
+/* Ano */
+.timeline-item .year {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  font-weight: bold;
+  background: #000;
+  padding: 2px 6px;
+  border-radius: 3px;
+  z-index: 3;
+}
+
+/* Ano centralizado abaixo da bolinha */
+.timeline-item .year {
+  position: absolute;
+  top: 36px; /* abaixo da bolinha (28px de altura + 8px de margem) */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15px;
+  font-weight: bold;
+  background: #000;
+  padding: 2px 6px;
+  border-radius: 3px;
+  z-index: 3;
+}
+
+/* Timeline boxes */
+.timeline-box {
+  position: relative;
+  width: 45%;
+  background: white;
+  color: #000;
+  padding: 14px 18px;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+}
+
+/* Direito */
+.timeline-box.right {
+  left: 52%;
+  text-align: left;
+}
+
+/* Esquerdo */
+.timeline-box.left {
+  left: 3%;
+  text-align: right;
+}
+
+/* Setas nos títulos */
+.timeline-box.right h3::after {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url('/img/Group 69.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 8px;
+}
+
+.timeline-box.left h3::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url('/img/Group 67.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 8px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 80px 0 40px;
+}
+
+.cta-button {
+  background: white;
+  color: #000;
+  font-weight: bold;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #f1f1f1;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .timeline-box {
+    width: 80%;
+    left: 10% !important;
+    margin: 20px auto;
+    text-align: left !important;
+  }
+  .timeline-box h3::before,
+  .timeline-box h3::after {
+    display: none;
+  }
+  .timeline-dot,
+  .year {
+    left: 10%;
+    transform: translateX(0);
+  }
+}
