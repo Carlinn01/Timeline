@@ -85,7 +85,7 @@ body::before {
   content: "";
   position: absolute;
   left: 50%;
-  top: 0;
+  top: 198px; /* começa abaixo da primeira bolinha */
   bottom: 0;
   width: 2px;
   background: repeating-linear-gradient(
@@ -96,6 +96,7 @@ body::before {
     transparent 12px
   );
   transform: translateX(-50%);
+  z-index: 0;
 }
 
 /* Cada item */
@@ -112,7 +113,7 @@ body::before {
   border-radius: 50%;
   position: absolute;
   left: 50%;
-  top: 0; /* topo do timeline-item */
+  top: 0;
   transform: translateX(-50%);
   box-shadow: 0 0 15px rgba(255,255,255,0.7);
   z-index: 2;
@@ -121,20 +122,7 @@ body::before {
 /* Ano */
 .timeline-item .year {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 15px;
-  font-weight: bold;
-  background: #000;
-  padding: 2px 6px;
-  border-radius: 3px;
-  z-index: 3;
-}
-
-/* Ano centralizado abaixo da bolinha */
-.timeline-item .year {
-  position: absolute;
-  top: 36px; /* abaixo da bolinha (28px de altura + 8px de margem) */
+  top: 36px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 15px;
@@ -148,74 +136,96 @@ body::before {
 /* Timeline boxes */
 .timeline-box {
   position: relative;
-  width: 45%;
-  background: white;
-  color: #000;
-  padding: 14px 18px;
-  border-radius: 3px;
+  width: 35%; /* espaço para a seta */
   font-size: 14px;
   line-height: 1.4;
-  display: flex;
-  align-items: center;
+  z-index: 2;
 }
 
-/* Direito */
+/* Caixa direita */
 .timeline-box.right {
-  left: 52%;
+  left: 55%;
+  text-align: left;
+  padding-left: 0; /* padding removido, título ficará dentro da seta */
+}
+
+/* Caixa esquerda */
+.timeline-box.left {
+  left: 5%;
+  text-align: right;
+  padding-right: 0; /* padding removido */
+}
+
+/* Seta como pseudo-elemento */
+.timeline-box.right::before,
+.timeline-box.left::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1;
+  top: 0; /* topo da caixa */
+}
+
+/* Caixa direita */
+.timeline-box.right::before {
+  left: 0;
+  background-image: url('/img/Group 67.png');
+}
+
+/* Caixa esquerda */
+.timeline-box.left::before {
+  right: 0;
+  background-image: url('/img/Group 69.png');
+}
+
+/* Título dentro da seta */
+.timeline-box h3 {
+  position: absolute; /* posição absoluta dentro da seta */
+  top: 50%; /* centraliza verticalmente */
+  left: 50%; /* centraliza horizontalmente */
+  transform: translate(-50%, -50%); /* ajuste central perfeito */
+  margin: 0;
+  padding: 0;
+  color: black;
+  z-index: 2; /* acima da seta */
+  text-align: center;
+}
+
+/* Parágrafo abaixo da seta */
+.timeline-box p {
+  margin-top: 140px; /* espaço abaixo da seta (altura da seta + folga) */
+  color: white;
+  position: relative;
+  z-index: 2;
   text-align: left;
 }
 
-/* Esquerdo */
-.timeline-box.left {
-  left: 3%;
-  text-align: right;
-}
-
-/* Setas nos títulos */
-.timeline-box.right h3::after {
+/* Seta como pseudo-elemento */
+.timeline-box.right::before,
+.timeline-box.left::before {
   content: "";
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  background-image: url('/img/Group 69.png');
-  background-size: contain;
+  position: absolute;
+  width: 120px;
+  height: 120px;
   background-repeat: no-repeat;
-  margin-left: 8px;
+  background-size: contain;
+  z-index: 1; /* atrás do título */
+  top: 0; /* topo da caixa */
 }
 
-.timeline-box.left h3::before {
-  content: "";
-  display: inline-block;
-  width: 18px;
-  height: 18px;
+/* Caixa direita */
+.timeline-box.right::before {
+  left: 0; /* alinha ao lado da bolinha */
   background-image: url('/img/Group 67.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-right: 8px;
 }
 
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 80px 0 40px;
-}
-
-.cta-button {
-  background: white;
-  color: #000;
-  font-weight: bold;
-  padding: 14px 28px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  background: #f1f1f1;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+/* Caixa esquerda */
+.timeline-box.left::before {
+  right: 0; /* alinha ao lado da bolinha */
+  background-image: url('/img/Group 69.png');
 }
 
 /* Responsivo */
@@ -225,10 +235,7 @@ body::before {
     left: 10% !important;
     margin: 20px auto;
     text-align: left !important;
-  }
-  .timeline-box h3::before,
-  .timeline-box h3::after {
-    display: none;
+    padding: 14px 18px !important;
   }
   .timeline-dot,
   .year {
