@@ -175,15 +175,28 @@ body::before {
 }
 
 /* Parágrafo abaixo da caixa */
-.paragrafo {
-  margin-top: 50px;
-  width: 100%;
-}
 
 .paragrafo p {
-  color: white;
+  color: #fff; /* ou #ccc, como preferir */
   font-size: 0.9rem;
   line-height: 1.4;
+  text-align: left; /* garante alinhamento à esquerda */
+  margin: 0; /* remove possíveis margens extras */
+  padding: 0; /* remove padding se houver */
+}
+/* Parágrafo alinhado ao lado da timeline */
+.timeline-item .paragrafo {
+  width: 35%; /* mesma largura da timeline-box */
+  margin-top: 20px;
+}
+
+.timeline-box.right + .paragrafo {
+  margin-left: 55%; /* alinha à direita da linha */
+  text-align: right;
+}
+
+.timeline-box.left + .paragrafo {
+  margin-right: 55%; /* alinha à esquerda da linha */
   text-align: left;
 }
 
@@ -215,11 +228,18 @@ body::before {
     margin-top: 0;
   }
 
-  .paragrafo {
-    margin-top: 20px;
-  }
+/* Parágrafo alinhado ao lado da timeline */
+.timeline-item .paragrafo {
+  width: 35%; /* mesma largura da timeline-box */
+  margin-top: 20px;
+}
 
-  .paragrafo p {
-    text-align: center;
-  }
+.timeline-box.right + .paragrafo {
+  margin-left: 55%; /* alinha à direita da linha */
+  text-align: right;
+}
+
+.timeline-box.left + .paragrafo {
+  margin-right: 55%; /* alinha à esquerda da linha */
+  text-align: left;
 }
