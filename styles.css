@@ -119,8 +119,8 @@ body::before {
 
 /* Bolinha central */
 .timeline-dot {
-  width: 28px;
-  height: 28px;
+  width: 50px;
+  height: 50px;
   background: white;
   border-radius: 50%;
   position: absolute;
@@ -128,7 +128,7 @@ body::before {
   top: 0;
   transform: translateX(-50%);
   box-shadow: 0 0 15px rgba(255,255,255,0.7);
-  z-index: 2;
+  z-index: 3;
 }
 
 /* Ano abaixo da bolinha */
@@ -156,8 +156,16 @@ body::before {
 }
 
 /* Lados da timeline */
-.timeline-box.right { left: 55%; text-align: left; }
-.timeline-box.left { left: 5%; text-align: right; }
+/* Lados da timeline com mesma distância da linha */
+.timeline-box.right {
+  left: calc(50% + 80px); /* 150px para a direita da linha central */
+  text-align: left;
+}
+
+.timeline-box.left {
+  left: calc(50% - 80px - 44%); /* 150px + largura da caixa para a esquerda */
+  text-align: right;
+}
 
 /* Título dentro da seta (ou caixa) */
 .timeline-box h3 {
@@ -172,6 +180,30 @@ body::before {
   z-index: 2;
   width: 90%;
   pointer-events: none;
+   line-height: 1.2;
+}
+
+.seta-container {
+  position: relative;
+  display: inline-block; /* tamanho ajusta ao da imagem */
+}
+
+.seta-container img {
+  display: block; /* remove espaços embaixo da img */
+}
+
+.seta-container h3 {
+  font-size: 26px;
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: black;
+  font-weight: 700;
+  text-align: center;
+  pointer-events: none;
+  line-height: 1.2;
 }
 
 /* Parágrafo abaixo da caixa */
@@ -199,6 +231,15 @@ body::before {
   margin-right: 55%; /* alinha à esquerda da linha */
   text-align: left;
 }
+
+/* Ajuste das setas (Group 67 e Group 69) */
+.timeline-box img[src*="Group 67"],
+.timeline-box img[src*="Group 69"] {
+  position: relative;
+  top: -15px;
+}
+
+
 
 /* ========================
    RESPONSIVO
@@ -242,4 +283,5 @@ body::before {
 .timeline-box.left + .paragrafo {
   margin-right: 55%; /* alinha à esquerda da linha */
   text-align: left;
+}
 }
