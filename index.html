@@ -19,6 +19,22 @@
       <button class="menu-toggle">
         <span></span><span></span><span></span>
       </button>
+      
+      <!-- Menu hambúrguer -->
+      <nav class="hamburger-menu">
+        <ul class="menu-items">
+          <li><a href="#noticias">NOTICIAS</a></li>
+          <li><a href="#elementos">ELEMENTOS</a></li>
+          <li><a href="#reacoes">REACOES</a></li>
+          <li><a href="#timeline">TIME-LINE</a></li>
+          <li><a href="#slides">SLIDES</a></li>
+          <li><a href="#quiz">QUIZ</a></li>
+          <li><a href="#quiz">LOGIN</a></li>
+          <li><a href="#quiz">CONTEUDOS</a></li>
+          <li><a href="#quiz">SIGN-UP</a></li>
+          <li><a href="#quiz">SIGN-IN</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
@@ -154,9 +170,19 @@
   </main>
 
   <!-- FOOTER -->
-    <footer class="footer">
-    <a href="#top" class="cta-button">VOLTAR PARA CIMA</a>
+  <footer class="footer">
+    <button class="cta-button">VOLTAR PARA CIMA</button>
   </footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const hamburgerMenu = document.querySelector('.hamburger-menu');
+
+  menuToggle.addEventListener('click', () => {
+    hamburgerMenu.classList.toggle('open');
+  });
+});
+</script>
 </body>
 </html>

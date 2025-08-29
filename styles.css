@@ -295,6 +295,55 @@ body::before {
   transform: translateY(0);
 }
 
+/* Menu hamburger */
+.hamburger-menu {
+  position: absolute;
+  top: 100%; /* logo abaixo do header */
+  right: 40px; /* mesma distância do padding do header */
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 5px;
+  overflow: hidden;
+  transform: translateY(-20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 20;
+}
+
+.hamburger-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hamburger-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.hamburger-menu li {
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.hamburger-menu li:last-child {
+  border-bottom: none;
+}
+
+.hamburger-menu a {
+  display: block;
+  padding: 15px 25px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.hamburger-menu a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+
 
 /* ========================
    RESPONSIVO
