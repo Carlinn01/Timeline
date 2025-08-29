@@ -1,15 +1,9 @@
-/* ========================
-   RESET
-======================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ========================
-   BODY
-======================== */
 body {
   font-family: "Playfair Display", serif;
   background: #000;
@@ -18,9 +12,6 @@ body {
   position: relative;
 }
 
-/* ========================
-   FUNDO
-======================== */
 body::before {
   content: "";
   position: fixed;
@@ -30,9 +21,6 @@ body::before {
   opacity: 0.9;
 }
 
-/* ========================
-   HEADER
-======================== */
 .header {
   width: 100%;
   padding: 25px 40px;
@@ -67,9 +55,6 @@ body::before {
   background: white;
 }
 
-/* ========================
-   TÍTULO PRINCIPAL
-======================== */
 .main-title {
   text-align: center;
   padding: 80px 20px 40px;
@@ -84,9 +69,6 @@ body::before {
   text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
 
-/* ========================
-   TIMELINE
-======================== */
 .timeline {
   position: relative;
   padding: 10px 0;
@@ -94,13 +76,11 @@ body::before {
   margin: 0 auto;
 }
 
-/* Linha central pontilhada */
 .timeline::before {
-    top: 200px;
+  top: 200px;
   content: "";
   position: absolute;
   left: 50%;
-
   bottom: 0;
   width: 2px;
   background: repeating-linear-gradient(
@@ -112,15 +92,11 @@ body::before {
   z-index: 0;
 }
 
-/* Item da timeline */
 .timeline-item {
   position: relative;
   margin: 100px 0;
 }
 
-
-
-/* Bolinha central */
 .timeline-dot {
   width: 50px;
   height: 50px;
@@ -134,7 +110,6 @@ body::before {
   z-index: 3;
 }
 
-/* Ano abaixo da bolinha */
 .year {
   position: absolute;
   top: calc(50%);
@@ -148,7 +123,6 @@ body::before {
   z-index: 3;
 }
 
-/* Caixa de conteúdo da timeline */
 .timeline-box {
   position: relative;
   width: 35%;
@@ -158,19 +132,16 @@ body::before {
   padding-top: 0;
 }
 
-/* Lados da timeline */
-/* Lados da timeline com mesma distância da linha */
 .timeline-box.right {
-  left: calc(50% + 80px); /* 150px para a direita da linha central */
+  left: calc(50% + 80px);
   text-align: left;
 }
 
 .timeline-box.left {
-  left: calc(50% - 80px - 44%); /* 150px + largura da caixa para a esquerda */
+  left: calc(50% - 80px - 44%);
   text-align: right;
 }
 
-/* Título dentro da seta (ou caixa) */
 .timeline-box h3 {
   position: absolute;
   top: 50%;
@@ -183,16 +154,16 @@ body::before {
   z-index: 2;
   width: 90%;
   pointer-events: none;
-   line-height: 1.2;
+  line-height: 1.2;
 }
 
 .seta-container {
   position: relative;
-  display: inline-block; /* tamanho ajusta ao da imagem */
+  display: inline-block;
 }
 
 .seta-container img {
-  display: block; /* remove espaços embaixo da img */
+  display: block;
 }
 
 .seta-container h3 {
@@ -209,45 +180,41 @@ body::before {
   line-height: 1.2;
 }
 
-/* Parágrafo abaixo da caixa */
-
 .paragrafo p {
-  color: #fff; /* ou #ccc, como preferir */
+  color: #fff;
   font-size: 0.9rem;
   line-height: 1.4;
-  text-align: left; /* garante alinhamento à esquerda */
-  margin: 0; /* remove possíveis margens extras */
-  padding: 0; /* remove padding se houver */
+  text-align: left;
+  margin: 0;
+  padding: 0;
 }
-/* Parágrafo alinhado ao lado da timeline */
+
 .timeline-item .paragrafo {
-  width: 35%; /* mesma largura da timeline-box */
+  width: 35%;
   margin-top: 20px;
   position: relative;
 }
 
 .timeline-box.right + .paragrafo {
   left: 0;
-  margin-left: 55%; /* alinha à direita da linha */
+  margin-left: 55%;
   text-align: right;
 }
 
 .timeline-box.left + .paragrafo {
-    left: 0;
-  margin-right: 55%; /* alinha à esquerda da linha */
+  left: 0;
+  margin-right: 55%;
   text-align: left;
 }
 
-/* Ajuste das setas (Group 67 e Group 69) */
 .timeline-box img[src*="Group 67"],
 .timeline-box img[src*="Group 69"] {
   position: relative;
   top: -15px;
 }
 
-/* Parágrafo abaixo da seta e título */
 .timeline-box .paragrafo {
-  margin-top: 0px; /* distância do título/imagem */
+  margin-top: 0px;
   width: 130%;
   text-align: end;
 }
@@ -260,18 +227,14 @@ body::before {
   padding: 0;
 }
 
-/* ========================
-   FOOTER
-======================== */
 .footer {
-
   text-align: center;
   padding: 40px 20px;
   margin-top: 60px;
 }
 
 .cta-button {
-    text-decoration: none;
+  text-decoration: none;
   background: white;
   color: black;
   border: none;
@@ -295,11 +258,10 @@ body::before {
   transform: translateY(0);
 }
 
-/* Menu hamburger */
 .hamburger-menu {
   position: absolute;
-  top: 100%; /* logo abaixo do header */
-  right: 40px; /* mesma distância do padding do header */
+  top: 100%;
+  right: 40px;
   background: rgba(0, 0, 0, 0.9);
   border-radius: 5px;
   overflow: hidden;
@@ -343,11 +305,6 @@ body::before {
   background: rgba(255,255,255,0.1);
 }
 
-
-
-/* ========================
-   RESPONSIVO
-======================== */
 @media (max-width: 900px) {
   .timeline-box {
     width: 80%;
@@ -365,28 +322,24 @@ body::before {
     max-width: 150px;
   }
 
-  
-
   .timeline-box h3 {
     position: relative;
     transform: none;
     margin-top: 0;
   }
 
-/* Parágrafo alinhado ao lado da timeline */
-.timeline-item .paragrafo {
-  width: 35%; /* mesma largura da timeline-box */
-  margin-top: 20px;
-}
+  .timeline-item .paragrafo {
+    width: 35%;
+    margin-top: 20px;
+  }
 
+  .timeline-box.right + .paragrafo {
+    margin-left: 55%;
+    text-align: right;
+  }
 
-.timeline-box.right + .paragrafo {
-  margin-left: 55%; /* alinha à direita da linha */
-  text-align: right;
-}
-
-.timeline-box.left + .paragrafo {
-  margin-right: 55%; /* alinha à esquerda da linha */
-  text-align: left;
-}
+  .timeline-box.left + .paragrafo {
+    margin-right: 55%;
+    text-align: left;
+  }
 }
