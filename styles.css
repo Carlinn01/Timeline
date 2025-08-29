@@ -1,9 +1,15 @@
+/* ========================
+   RESET
+======================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ========================
+   BODY
+======================== */
 body {
   font-family: "Playfair Display", serif;
   background: #000;
@@ -12,7 +18,9 @@ body {
   position: relative;
 }
 
-/* Fundo com imagem */
+/* ========================
+   FUNDO
+======================== */
 body::before {
   content: "";
   position: fixed;
@@ -22,7 +30,9 @@ body::before {
   opacity: 0.9;
 }
 
-/* Header */
+/* ========================
+   HEADER
+======================== */
 .header {
   width: 100%;
   padding: 25px 40px;
@@ -57,7 +67,9 @@ body::before {
   background: white;
 }
 
-/* Título */
+/* ========================
+   TÍTULO PRINCIPAL
+======================== */
 .main-title {
   text-align: center;
   padding: 80px 20px 40px;
@@ -72,7 +84,9 @@ body::before {
   text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
 
-/* Timeline */
+/* ========================
+   TIMELINE
+======================== */
 .timeline {
   position: relative;
   padding: 60px 0;
@@ -80,32 +94,30 @@ body::before {
   margin: 0 auto;
 }
 
-/* Linha vertical pontilhada */
+/* Linha central pontilhada */
 .timeline::before {
   content: "";
   position: absolute;
   left: 50%;
-  top: 198px; /* começa abaixo da primeira bolinha */
+  top: 0;
   bottom: 0;
   width: 2px;
   background: repeating-linear-gradient(
     to bottom,
-    white,
-    white 6px,
-    transparent 6px,
-    transparent 12px
+    white 0 6px,
+    transparent 6px 12px
   );
   transform: translateX(-50%);
   z-index: 0;
 }
 
-/* Cada item */
+/* Item da timeline */
 .timeline-item {
   position: relative;
   margin: 100px 0;
 }
 
-/* Bolinha */
+/* Bolinha central */
 .timeline-dot {
   width: 28px;
   height: 28px;
@@ -119,127 +131,95 @@ body::before {
   z-index: 2;
 }
 
-/* Ano */
-.timeline-item .year {
+/* Ano abaixo da bolinha */
+.year {
   position: absolute;
-  top: 36px;
+  top: calc(100% + 4px);
   left: 50%;
   transform: translateX(-50%);
-  font-size: 15px;
+  font-size: 0.9rem;
   font-weight: bold;
-  background: #000;
+  background: rgba(0,0,0,0.8);
   padding: 2px 6px;
   border-radius: 3px;
   z-index: 3;
 }
 
-/* Timeline boxes */
+/* Caixa de conteúdo da timeline */
 .timeline-box {
   position: relative;
-  width: 35%; /* espaço para a seta */
-  font-size: 14px;
+  width: 35%;
+  font-size: 0.9rem;
   line-height: 1.4;
   z-index: 2;
+  padding-top: 0;
 }
 
-/* Caixa direita */
-.timeline-box.right {
-  left: 55%;
-  text-align: left;
-  padding-left: 0; /* padding removido, título ficará dentro da seta */
-}
+/* Lados da timeline */
+.timeline-box.right { left: 55%; text-align: left; }
+.timeline-box.left { left: 5%; text-align: right; }
 
-/* Caixa esquerda */
-.timeline-box.left {
-  left: 5%;
-  text-align: right;
-  padding-right: 0; /* padding removido */
-}
-
-/* Seta como pseudo-elemento */
-.timeline-box.right::before,
-.timeline-box.left::before {
-  content: "";
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 1;
-  top: 0; /* topo da caixa */
-}
-
-/* Caixa direita */
-.timeline-box.right::before {
-  left: 0;
-  background-image: url('/img/Group 67.png');
-}
-
-/* Caixa esquerda */
-.timeline-box.left::before {
-  right: 0;
-  background-image: url('/img/Group 69.png');
-}
-
-/* Título dentro da seta */
+/* Título dentro da seta (ou caixa) */
 .timeline-box h3 {
-  position: absolute; /* posição absoluta dentro da seta */
-  top: 50%; /* centraliza verticalmente */
-  left: 50%; /* centraliza horizontalmente */
-  transform: translate(-50%, -50%); /* ajuste central perfeito */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   margin: 0;
-  padding: 0;
   color: black;
-  z-index: 2; /* acima da seta */
+  font-weight: 700;
   text-align: center;
+  z-index: 2;
+  width: 90%;
+  pointer-events: none;
 }
 
-/* Parágrafo abaixo da seta */
-.timeline-box p {
-  margin-top: 140px; /* espaço abaixo da seta (altura da seta + folga) */
+/* Parágrafo abaixo da caixa */
+.paragrafo {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.paragrafo p {
   color: white;
-  position: relative;
-  z-index: 2;
+  font-size: 0.9rem;
+  line-height: 1.4;
   text-align: left;
 }
 
-/* Seta como pseudo-elemento */
-.timeline-box.right::before,
-.timeline-box.left::before {
-  content: "";
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 1; /* atrás do título */
-  top: 0; /* topo da caixa */
-}
-
-/* Caixa direita */
-.timeline-box.right::before {
-  left: 0; /* alinha ao lado da bolinha */
-  background-image: url('/img/Group 67.png');
-}
-
-/* Caixa esquerda */
-.timeline-box.left::before {
-  right: 0; /* alinha ao lado da bolinha */
-  background-image: url('/img/Group 69.png');
-}
-
-/* Responsivo */
+/* ========================
+   RESPONSIVO
+======================== */
 @media (max-width: 900px) {
   .timeline-box {
     width: 80%;
-    left: 10% !important;
-    margin: 20px auto;
-    text-align: left !important;
-    padding: 14px 18px !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    text-align: center !important;
+    padding-top: 60px;
   }
-  .timeline-dot,
-  .year {
-    left: 10%;
-    transform: translateX(0);
+
+  .timeline-box img {
+    position: relative;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto 10px;
+    max-width: 150px;
+  }
+
+  
+
+  .timeline-box h3 {
+    position: relative;
+    transform: none;
+    margin-top: 0;
+  }
+
+  .paragrafo {
+    margin-top: 20px;
+  }
+
+  .paragrafo p {
+    text-align: center;
   }
 }
