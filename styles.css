@@ -89,17 +89,18 @@ body::before {
 ======================== */
 .timeline {
   position: relative;
-  padding: 60px 0;
+  padding: 10px 0;
   max-width: 1000px;
   margin: 0 auto;
 }
 
 /* Linha central pontilhada */
 .timeline::before {
+    top: 200px;
   content: "";
   position: absolute;
   left: 50%;
-  top: 0;
+
   bottom: 0;
   width: 2px;
   background: repeating-linear-gradient(
@@ -116,6 +117,8 @@ body::before {
   position: relative;
   margin: 100px 0;
 }
+
+
 
 /* Bolinha central */
 .timeline-dot {
@@ -134,7 +137,7 @@ body::before {
 /* Ano abaixo da bolinha */
 .year {
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(50%);
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.9rem;
@@ -220,14 +223,17 @@ body::before {
 .timeline-item .paragrafo {
   width: 35%; /* mesma largura da timeline-box */
   margin-top: 20px;
+  position: relative;
 }
 
 .timeline-box.right + .paragrafo {
+  left: 0;
   margin-left: 55%; /* alinha à direita da linha */
   text-align: right;
 }
 
 .timeline-box.left + .paragrafo {
+    left: 0;
   margin-right: 55%; /* alinha à esquerda da linha */
   text-align: left;
 }
@@ -239,6 +245,55 @@ body::before {
   top: -15px;
 }
 
+/* Parágrafo abaixo da seta e título */
+.timeline-box .paragrafo {
+  margin-top: 0px; /* distância do título/imagem */
+  width: 130%;
+  text-align: end;
+}
+
+.timeline-box .paragrafo p {
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================
+   FOOTER
+======================== */
+.footer {
+
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 60px;
+}
+
+.cta-button {
+    text-decoration: none;
+  background: white;
+  color: black;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+}
+
+.cta-button:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,255,255,0.3);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
 
 
 /* ========================
@@ -274,6 +329,7 @@ body::before {
   width: 35%; /* mesma largura da timeline-box */
   margin-top: 20px;
 }
+
 
 .timeline-box.right + .paragrafo {
   margin-left: 55%; /* alinha à direita da linha */
